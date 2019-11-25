@@ -11,11 +11,11 @@ https://www.potterapi.com/v1/
 		function lookup() {
 			let xhr = new XMLHttpRequest();
 			
-			let url = 'https://www.potterapi.com/v1/';
-			url += "sortingHat";
+			let url = 'https://www.potterapi.com/v1/sortingHat';
+			//url += "sortingHat";
 			
 			xhr.open('GET', url);
-			xhr.setRequestHeader('X-API-Key', '$2a$10$5rpRS02KeJIH1FjlJ7SoB.6zBFfhXqSp/uQwMKqP4fSm5To3fXIOu');
+			//xhr.setRequestHeader('X-API-Key', '$2a$10$5rpRS02KeJIH1FjlJ7SoB.6zBFfhXqSp/uQwMKqP4fSm5To3fXIOu');
 			
 			
 			
@@ -26,8 +26,8 @@ https://www.potterapi.com/v1/
 				console.log(xhr);				
 			  } else { // show the result
 				alert(`Done, got ${xhr.response.length} bytes`); 
-				responseArea.innerHtml = response.text;
-				console.log(response.text);
+				document.getElementById('responseArea').innerHTML = xhr.responseText;
+				console.log(xhr.responseText);
 			  }
 			};
 			
