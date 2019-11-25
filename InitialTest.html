@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bungo API Test</title>
+	
+	<script>
+		function lookupUser() {
+			let xhr = new XMLHttpRequest();
+			
+			let url = 'https://www.bungie.net/Platform/User/SearchUsers/';
+			url += "?q=myth";
+			
+			xhr.open('GET', url);
+			xhr.setRequestHeader('X-API-Key', '6e743dfe05984dfcb269fbbcf7fd8e88');
+			xhr.setRequestHeader('Origin', 'http://educationexample.com');
+			
+			xhr.onload = function() {
+			  if (xhr.status != 200) { 
+				alert(`Error ${xhr.status}: ${xhr.statusText}`);
+				console.log(xhr);				
+			  } else { // show the result
+				alert(`Done, got ${xhr.response.length} bytes`); 
+				responseArea.innerHtml = response.text;
+				console.log(response.text);
+			  }
+			};
+			
+			xhr.send();
+
+			
+		}
+	</script>
+	
+</head>
+<body>
+	<div id="responseArea">Empty...for now</div>
+	<button onclick="lookupUser()">Click to look up user</button>
+</body>
+</html>
