@@ -1,0 +1,45 @@
+https://www.potterapi.com/v1/
+
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Potter API Test</title>
+	
+	<script>
+		function lookup() {
+			let xhr = new XMLHttpRequest();
+			
+			let url = 'https://www.potterapi.com/v1/';
+			url += "sortingHat";
+			
+			xhr.open('GET', url);
+			xhr.setRequestHeader('X-API-Key', '$2a$10$5rpRS02KeJIH1FjlJ7SoB.6zBFfhXqSp/uQwMKqP4fSm5To3fXIOu');
+			
+			
+			
+			
+			xhr.onload = function() {
+			  if (xhr.status != 200) { 
+				alert(`Error ${xhr.status}: ${xhr.statusText}`);
+				console.log(xhr);				
+			  } else { // show the result
+				alert(`Done, got ${xhr.response.length} bytes`); 
+				responseArea.innerHtml = response.text;
+				console.log(response.text);
+			  }
+			};
+			
+			xhr.send();
+
+			
+		}
+	</script>
+	
+</head>
+<body>
+	<div id="responseArea">Empty...for now</div>
+	<button onclick="lookup()">Click to look up stuff</button>
+</body>
+</html>
