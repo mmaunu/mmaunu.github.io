@@ -13,7 +13,12 @@
 			
 			xhr.open('GET', url);
 			xhr.setRequestHeader('X-API-Key', '6e743dfe05984dfcb269fbbcf7fd8e88');
+			
+			/* Perhaps don't set the header...the browser should do this
+				so that you can't spoof an alternate origin.
 			xhr.setRequestHeader('Origin', 'https://mmaunu.github.io/');
+			*/
+			
 			
 			xhr.onload = function() {
 			  if (xhr.status != 200) { 
