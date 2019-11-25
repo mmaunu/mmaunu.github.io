@@ -26,8 +26,8 @@
 				console.log(xhr);				
 			  } else { // show the result
 				alert(`Done, got ${xhr.response.length} bytes`); 
-				responseArea.innerHtml = response.text;
-				console.log(response.text);
+				document.getElementById('responseArea').innerHTML = xhr.responseText;
+				console.log(xhr.responseText);
 			  }
 			};
 			
